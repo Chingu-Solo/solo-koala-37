@@ -1,0 +1,15 @@
+.header-container{
+	padding:0 50px;
+	color:grey;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.header-container div{
+	align-self:center;
+}
+.header-container a{
+	margin:10px;
+	
+}
