@@ -1,3 +1,9 @@
-.card{
-	width:21%;
+.row > .col-lg-2{
+	margin: 2% 2.5%;
+	border-width: 2px;
+	min-width: 20%;
+}
+.font-card{
+	min-height: 250px;
+	word-break: break-word;
 }

@@ -1,6 +1,5 @@
 .header-container{
 	padding:0 50px;
-	color:grey;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -11,5 +10,9 @@
 }
 .header-container a{
 	margin:10px;
-	
+	color:grey;
+}
+.header-container a:hover{
+	text-decoration: none;
+	color:darkgrey;
 }
