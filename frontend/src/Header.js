@@ -2,8 +2,10 @@ import React,{Component} from 'react';
 import './Header.css';
 class	Header extends Component{
 	render() {
+		const {isDarkMode} = this.props;
+		let headerClass = `header-container p-3 border-bottom ${isDarkMode?"text-light":null} `;
 		return (
-			<div className="header-container p-3 border-bottom ">
+			<div className={headerClass}>
 				<h3>Google Fonts</h3>
 				<div>
 					<a href="/">CATALOG</a>

@@ -4,8 +4,17 @@ import './Cards.css'
 class Cards extends Component{
 	
 	render() {
-		const {fonts,fontSize,displayText} = this.props;
-		const cardList = fonts.map((font,index)=> (<Card font={font} displayText={displayText} fontSize={fontSize} index={index} key={index}/>));
+		const {fonts,fontSize,displayText,isDarkMode} = this.props;
+		const cardList = fonts.map((font,index)=> (
+			<Card 
+				font={font}
+				isDarkMode={isDarkMode}
+				displayText={displayText} 
+				fontSize={fontSize} 
+				index={index} 
+				key={index}
+			/>
+		));
 
 		return (
 			<div 
