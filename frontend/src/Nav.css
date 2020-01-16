@@ -1,4 +1,4 @@
-select,input{
+nav > select,input{
 	border: none;
 	outline: none;
 }

@@ -14,13 +14,14 @@ const Card = (props)=>{
 	apiUrl.push('https://fonts.googleapis.com/css?family=');
 	apiUrl.push(font.family.replace(/ /g, '+'));
 	var url = apiUrl.join('');
-	
+	// let isLoading = ;
 
 	return(
 		[
+			!displayText==="Please Wait"? 
 			<Helmet key={`${index}0`}>
 				<link href={url} rel="stylesheet" />
-			</Helmet>,
+			</Helmet>:null,
 			<div 
 				className={cardClass} 
 				key={`${index}2`} 
