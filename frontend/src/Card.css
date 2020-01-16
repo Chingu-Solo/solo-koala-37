@@ -1,3 +1,14 @@
-.card{
-	width:21%;
+.row > .col-lg-2{
+	margin: 2% 4.166%;
+	border-width: 2px;
+
+}
+
+.border-top{
+	border-top: 1px black solid !important;
+}
+
+.font-card{
+	min-height: 800px;
+	height: 20%;
 }
