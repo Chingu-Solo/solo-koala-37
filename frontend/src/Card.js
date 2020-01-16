@@ -3,27 +3,31 @@ import {Helmet} from "react-helmet";
 import './Card.css';
 
 const Card = (props)=>{
-	const {size,displayText,font} = props;
+	let {fontSize,displayText,font,index} = props;
+	displayText = displayText || "Then came the of the first falling star";
 	const style = {
-		fontSize:size,
-		fontFamily:`${font.family} ${font.category}`
+		fontSize:`${fontSize}px`,
+		fontFamily:`${font.family}, ${font.category}`,
 	};
-
+	const divClassName = "col-lg-2 col-md-3 col-sm-5 border-top font-card py-2";
 	var apiUrl = [];
 	apiUrl.push('https://fonts.googleapis.com/css?family=');
 	apiUrl.push(font.family.replace(/ /g, '+'));
-
-	// url: 'https://fonts.googleapis.com/css?family=Anonymous+Pro:italic&subset=greek'
 	var url = apiUrl.join('');
 	
-	return([
-		<Helmet key={0}>
-			<link href={url} rel="stylesheet" />
-		</Helmet>,
-		<div className="card" style={style} key={1}>
-			<h3> {font.family} </h3>
-			{displayText}
-		</div>
+
+	return(
+		[
+			<Helmet key={`${index}0`}>
+				<link href={url} rel="stylesheet" />
+			</Helmet>,
+			<div 
+				className={divClassName} 
+				key={`${index}2`} 
+			>
+				<h4 className="mb-5"> {font.family} </h4>
+				<span style={style}>{displayText}</span>
+			</div>
 		]
 	)
 }

@@ -4,11 +4,13 @@ import './Cards.css'
 class Cards extends Component{
 	
 	render() {
-		const {fonts,size,displayText} = this.props;
-		const cardList = fonts.map((font,index)=> (<Card font={font} displayText={displayText} size={size} key={index}/>));
+		const {fonts,fontSize,displayText} = this.props;
+		const cardList = fonts.map((font,index)=> (<Card font={font} displayText={displayText} fontSize={fontSize} index={index} key={index}/>));
 
 		return (
-			<div className="cards">
+			<div 
+				className= "m-auto row"
+			>
 				{cardList}
 			</div>
 		);
