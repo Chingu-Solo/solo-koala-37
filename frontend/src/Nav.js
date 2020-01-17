@@ -3,13 +3,13 @@ import './Nav.css'
 class Nav extends Component{
 
 	render() {
-		const {handleChange,fontSize,displayText,isDarkMode,handleDarkMode} = this.props;
+		const {handleChange,fontSize,displayText,search,isDarkMode,handleDarkMode} = this.props;
 		let inputClass = `col-3 m-1 border-right ${isDarkMode?" bg-dark text-white":""}`;
 		let selectClass = `col-1 p-1 mx-1 ${isDarkMode?" bg-dark text-white":" bg-white"}`
 		return (
 			<div id="nav" className = "rounded-pill border px-5 py-1 mx-5 my-3 text-secondary ">
-				<input type="text" placeholder="Search" className={inputClass}/>
-				<input name="displayText" type="text" value={displayText} placeholder="Type something" onChange={handleChange} className={inputClass} />
+				<input name="search" type="text" value={search} onChange={handleChange} className={inputClass}placeholder="Search" />
+				<input name="displayText" type="text" value={displayText} onChange={handleChange} className={inputClass} placeholder="Type something" />
 				<select name="fontSize" value={fontSize} onChange={handleChange} className={selectClass}>
 					<option value="20"> 20px </option>
 					<option value="24"> 24px </option>
