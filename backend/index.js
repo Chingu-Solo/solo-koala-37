@@ -10,11 +10,13 @@ function handleErrors(res,err){
 		:	res.send(err.message);
 }
 
-app.get('/api/',(req,res)=>{
+app.get('/api',(req,res)=>{
 	let url =`https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.FONT_API_KEY}`;
 	axios.get(url)
 		.then(function(fontdata){
-			fontdata = fontdata.data.items.map(({family,category},id)=>({family,category,id}) );
+			fontdata = fontdata.data.items.map(({family,category},id)=>(
+				{id,family,category}
+			));
 			res.json(fontdata);
 		})
 		.catch(err=>(handleErrors(res,err)));	
