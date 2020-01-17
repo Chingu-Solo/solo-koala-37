@@ -3,7 +3,7 @@ import './Header.css';
 class	Header extends Component{
 	render() {
 		const {isDarkMode} = this.props;
-		let headerClass = `header-container p-3 border-bottom ${isDarkMode?"text-light":null} `;
+		let headerClass = `header-container p-3 border-bottom ${isDarkMode?"text-light":"text-secondary"} `;
 		return (
 			<div className={headerClass}>
 				<h3>Google Fonts</h3>
