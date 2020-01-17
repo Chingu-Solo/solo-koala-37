@@ -11,7 +11,7 @@ function handleErrors(res,err){
 }
 
 app.get('/api',(req,res)=>{
-	let url =`https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.FONT_API_KEY}`;
+	let url =`https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${process.env.FONT_API_KEY}`;
 	axios.get(url)
 		.then(function(fontdata){
 			fontdata = fontdata.data.items.map(({family,category},id)=>(
