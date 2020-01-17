@@ -27,14 +27,13 @@ class Cards extends Component{
 
 	render() {
 		const {fonts,fontSize,displayText,isDarkMode} = this.props;
-		const cardList = fonts.map((font,index)=> (
+		const cardList = fonts.map((font,i)=> (
 			<Card 
+				key={`${font.id}`}
 				font={font}
 				isDarkMode={isDarkMode}
 				displayText={displayText} 
 				fontSize={fontSize} 
-				index={index} 
-				key={index}
 			/>
 		));
 		return (
