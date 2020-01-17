@@ -17,6 +17,7 @@ class FontApp extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleDarkMode = this.handleDarkMode.bind(this);
 		this.loadMoreCards = this.loadMoreCards.bind(this);
+		this.reset = this.reset.bind(this);
 	}
 
 	handleChange(e){
@@ -52,6 +53,15 @@ class FontApp extends Component {
 			return  {fonts:[...fonts,...fontsToAppend]}
 		});
 	}
+	reset(){
+		this.setState({
+			fonts:[],
+			fontSize:32,
+			displayText:"",
+			search:"",
+			isDarkMode:false
+		},this.loadMoreCards);
+	}
 	async componentDidMount(){
 		let response = await fetch(`/api`);
 		let allFonts = await response.json();
@@ -63,14 +73,16 @@ class FontApp extends Component {
 		let darkClass = "dark-app text-white bg-dark";
 		return (
 			<div className={isDarkMode?darkClass:null}>
-				<Header />
+				<Header isDarkMode={isDarkMode}/>
 				<Nav
-					handleChange={this.handleChange}
-					handleDarkMode={this.handleDarkMode}
+					search={search}
 					fontSize={fontSize}
 					displayText={displayText}
 					isDarkMode={isDarkMode}
-					search={search}
+					handleChange={this.handleChange}
+					handleDarkMode={this.handleDarkMode}
+					reset = {this.reset}
+					
 				/>
 
 				{/*<Footer />*/}
