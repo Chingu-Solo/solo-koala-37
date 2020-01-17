@@ -10,15 +10,16 @@ function handleErrors(res,err){
 		:	res.send(err.message);
 }
 
-app.get('/',(req,res)=>{
+app.get('/api/',(req,res)=>{
 	let url =`https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.FONT_API_KEY}`;
 	axios.get(url)
 		.then(function(fontdata){
-			res.json(fontdata.data.items);
+			fontdata = fontdata.data.items.map(({family,category},id)=>({family,category,id}) );
+			res.json(fontdata);
 		})
-		.catch(err=>(res.send(handleErrors(res,err))));	
+		.catch(err=>(handleErrors(res,err)));	
 });
 
-app.listen(3001,()=>{
-	console.log('server running at 3001');
+app.listen(process.env.PORT || 3001,()=>{
+	console.log('server running at ',process.env.PORT || 3001);
 })
