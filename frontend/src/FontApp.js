@@ -28,12 +28,11 @@ class FontApp extends Component {
 		this.setState({isDarkMode});
 	}
 	loadMoreCards(){
-
 		if(this.state.fonts.length===this.state.allFonts.length) return;
 
 		this.setState(({fonts,allFonts}, props) => {
 			let startIndex = fonts.length;
-			let endIndex = Math.min(fonts.length+15,allFonts.length);
+			let endIndex = Math.min(fonts.length+15,allFonts.length-1);
 			return  {fonts:[...fonts,
 										...allFonts.slice(startIndex,endIndex)
 										]
@@ -41,10 +40,9 @@ class FontApp extends Component {
 		});
 	}
 	async componentDidMount(){
-		let response = await fetch(`https://www.googleapis.com/webfonts/v1/webfonts?key=${process.env.REACT_APP_FONT_API_KEY}`);
-		response = await response.json();
-		let allFonts = response.items;
-		this.setState({allFonts,displayText:"",fonts:[]});
+		let response = await fetch(`/api`);
+		let allFonts = await response.json();
+		await this.setState({allFonts,displayText:"",fonts:[]});
 		this.loadMoreCards();
 	}
 	render() {
