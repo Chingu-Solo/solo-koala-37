@@ -1,6 +1,8 @@
 # Favourite Font
    This is a solo project with Chingu Solo Projects organization
 
+<img src="https://i.ibb.co/988TnSt/Google-Fonts-4.gif"/>
+
 ## Tier-3
    Specifications - https://github.com/chingu-voyages/voyage-prework-tier3-favfonts
 
